@@ -55,3 +55,11 @@ const oddNums = numbers.filter((element) => element % 2 !== 0);
 const total = numbers.reduce((accumulator, element) => accumulator + element);
 
 console.log(total);
+
+//when to use arrow function?
+// Lexical this: If you need to preserve the this context from the surrounding scope, especially 
+//in event listeners or callback functions, arrow functions are preferred.
+const button = document.getElementById("myButton");
+button.addEventListener("click", () => {
+  console.log(this); // Refers to the button element
+});
