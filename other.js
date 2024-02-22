@@ -75,3 +75,23 @@ async function fetchData(url) {
 }
 
 fetchData("https://api.example.com/data");
+
+//context api example
+const ThemeContext = createContext('light');
+
+function App() {
+  const [theme, setTheme] = useState('light');
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <ChildComponent />
+    </ThemeContext.Provider>
+  );
+}
+
+function ChildComponent() {
+  const { theme } = useContext(ThemeContext);
+
+  return <div style={{ color: theme === 'light' ? 'black' : 'white' }}>Content</div>;
+}
+
