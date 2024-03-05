@@ -107,3 +107,19 @@ function myFunc() {
     0
   );
 }
+
+//promises async/await
+async function fetchPosts() {
+  try {
+    const response = await fetch("/posts");
+    const data = await response.json();
+    console.log(data);
+  } catch {
+    console.error(error);
+  }
+}
+//an older example would be...
+fetch("/posts") 
+  .then(response => response.json())
+  .then(posts => console.log(posts));
+  .catch(err => console.log(err));
