@@ -123,3 +123,23 @@ fetch("/posts")
   .then(response => response.json())
   .then(posts => console.log(posts));
   .catch(err => console.log(err));
+
+
+  //asynchronous operation
+  console.log("Start");
+
+setTimeout(function() {
+  console.log("Timeout callback");
+}, 0);
+
+// Simulate a long-running synchronous operation
+function longRunningOperation() {
+  let i = 0;
+  while (i < 1000000000) {
+    i++;
+  }
+}
+
+longRunningOperation();
+
+console.log("End");
